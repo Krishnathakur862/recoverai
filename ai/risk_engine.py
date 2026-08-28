@@ -73,8 +73,8 @@ def analyze_payments(file_path):
 
 
 if __name__ == "__main__":
-    payments = analyze_payments("../data/payments.csv")
-
+    
+    payments = analyze_payments("data/payments.csv")
     print("\n=== RecoverAI Revenue Risk Analysis ===\n")
 
     for payment in payments:

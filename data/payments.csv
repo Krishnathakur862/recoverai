@@ -1,0 +1,16 @@
+payment_id,customer_id,amount,currency,status,payment_method,failure_reason,days_since_last_payment,subscription_status
+PAY001,CUST001,1499,INR,failed,card,insufficient_funds,0,active
+PAY002,CUST002,2499,INR,success,upi,,0,active
+PAY003,CUST003,799,INR,failed,card,card_declined,2,active
+PAY004,CUST004,4999,INR,failed,netbanking,bank_error,1,active
+PAY005,CUST005,999,INR,success,upi,,0,active
+PAY006,CUST006,1999,INR,failed,card,expired_card,15,active
+PAY007,CUST007,2999,INR,failed,upi,upi_timeout,0,active
+PAY008,CUST008,5999,INR,success,card,,0,active
+PAY009,CUST009,1299,INR,failed,card,insufficient_funds,3,active
+PAY010,CUST010,3499,INR,failed,card,card_declined,7,overdue
+PAY011,CUST011,899,INR,success,upi,,0,active
+PAY012,CUST012,7499,INR,failed,netbanking,bank_error,2,active
+PAY013,CUST013,1599,INR,failed,upi,upi_timeout,1,active
+PAY014,CUST014,4299,INR,success,card,,0,active
+PAY015,CUST015,2199,INR,failed,card,expired_card,30,overdue

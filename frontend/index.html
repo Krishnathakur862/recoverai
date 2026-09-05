@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecoverAI — Revenue Recovery Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h1>RecoverAI</h1>
+            <p>Revenue Intelligence</p>
+        </div>
+
+        <div class="workspace">
+            <strong>WORKSPACE</strong>
+
+            <div class="workspace-name">
+                Demo Business
+            </div>
+
+            <small>India · INR</small>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-heading">
+                OVERVIEW
+            </div>
+
+            <a class="nav-link active"
+               onclick="goToSection('dashboard', this)">
+                Dashboard
+            </a>
+
+            <a class="nav-link"
+               onclick="openRecoverPage(
+                   'payments',
+                   this,
+                   'Payments',
+                   'Monitor every transaction and identify failed payment opportunities.'
+               )">
+                Payments
+            </a>
+
+            <a class="nav-link"
+               onclick="openRecoverPage(
+                   'customers',
+                   this,
+                   'Customers',
+                   'Understand customer payment behavior and recovery risk.'
+               )">
+                Customers
+            </a>
+
+
+            <div class="nav-heading">
+                INTELLIGENCE
+            </div>
+
+            <a class="nav-link"
+               onclick="goToSection('aiRiskAnalysis', this)">
+                AI Risk Analysis
+            </a>
+
+            <a class="nav-link"
+               onclick="goToSection('recoveryQueue', this)">
+                Recovery Queue
+            </a>
+
+            <a class="nav-link"
+               onclick="goToSection('analytics', this)">
+                Analytics
+            </a>
+
+
+            <div class="nav-heading">
+                SYSTEM
+            </div>
+
+            <a class="nav-link"
+               onclick="goToSection('settings', this)">
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="ai-status">
+                <strong>AI Engine Online</strong>
+                <small>Risk model operational</small>
+            </div>
+
+            <div class="administrator">
+                <strong>Krishna</strong>
+                <small>Administrator</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <div class="breadcrumb">
+                    Workspace /
+                    <span id="breadcrumbPage">Dashboard</span>
+                </div>
+
+                <h2 id="pageTitle">
+                    Revenue Recovery Dashboard
+                </h2>
+
+                <p id="pageDescription">
+                    AI-powered visibility into payment failures and recovery opportunities.
+                </p>
+
+            </div>
+
+            <div class="header-status">
+                <span class="status-dot"></span>
+                AI ONLINE
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section id="dashboard"
+                 class="page-section">
+
+            <!-- KPI WIDGETS -->
+
+            <div class="kpi-grid">
+
+                <div class="card dashboard-kpi">
+                    <span>Total Payments</span>
+                    <strong id="totalPayments">--</strong>
+                    <small>All transactions</small>
+                </div>
+
+                <div class="card dashboard-kpi success-kpi">
+                    <span>Successful Payments</span>
+                    <strong id="successfulPayments">--</strong>
+                    <small>Completed successfully</small>
+                </div>
+
+                <div class="card dashboard-kpi danger-kpi">
+                    <span>Failed Payments</span>
+                    <strong id="failedPayments">--</strong>
+                    <small>Need attention</small>
+                </div>
+
+                <div class="card dashboard-kpi risk-kpi">
+                    <span>Revenue At Risk</span>
+                    <strong id="revenueAtRisk">--</strong>
+                    <small>Recovery opportunity</small>
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD QUICK WIDGETS -->
+
+            <div class="dashboard-widget-grid">
+
+                <div class="card mini-widget">
+                    <div class="widget-label">
+                        RECOVERY RATE
+                    </div>
+
+                    <div class="widget-value">
+                        <span id="dashboardRecoveryRate">20%</span>
+                    </div>
+
+                    <div class="widget-description">
+                        Successfully recovered payments
+                    </div>
+                </div>
+
+
+                <div class="card mini-widget">
+                    <div class="widget-label">
+                        SUCCESSFUL REVENUE
+                    </div>
+
+                    <div class="widget-value">
+                        <span id="dashboardSuccessfulRevenue">
+                            ₹14,695
+                        </span>
+                    </div>
+
+                    <div class="widget-description">
+                        Revenue successfully processed
+                    </div>
+                </div>
+
+
+                <div class="card mini-widget">
+                    <div class="widget-label">
+                        AI PRIORITY
+                    </div>
+
+                    <div class="widget-value priority-value">
+                        HIGH
+                    </div>
+
+                    <div class="widget-description">
+                        AI has identified priority recovery cases
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- REVENUE RECOVERY -->
+
+            <div class="card revenue-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            REVENUE INTELLIGENCE
+                        </span>
+
+                        <h3>
+                            Revenue Recovery Opportunity
+                        </h3>
+
+                        <p>
+                            Monitor lost revenue and identify where recovery actions can create the most value.
+                        </p>
+                    </div>
+
+                    <div class="live-badge">
+                        LIVE
+                    </div>
+
+                </div>
+
+
+                <div class="revenue-values">
+
+                    <div class="revenue-stat risk-stat">
+                        <span>Revenue at risk</span>
+                        <strong id="bigRevenueRisk">₹0</strong>
+                        <small>Potential recovery</small>
+                    </div>
+
+                    <div class="revenue-stat success-stat">
+                        <span>Successful revenue</span>
+                        <strong id="successfulRevenue">₹0</strong>
+                        <small>Successfully processed</small>
+                    </div>
+
+                    <div class="revenue-stat failed-stat">
+                        <span>Failed revenue</span>
+                        <strong id="failedRevenue">₹0</strong>
+                        <small>Currently unrecovered</small>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-container revenue-progress">
+                    <div id="riskBar"
+                         class="progress-bar">
+                    </div>
+                </div>
+
+                <div class="progress-label">
+                    <strong id="riskPercentage">0%</strong>
+                    <span>of transaction revenue is currently at risk</span>
+                </div>
+
+            </div>
+
+
+            <!-- RISK INTELLIGENCE -->
+
+            <div class="card risk-intelligence-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            AI RISK ENGINE
+                        </span>
+
+                        <h3>
+                            Risk Intelligence
+                        </h3>
+
+                        <p>
+                            Payment risk increases from low to high based on AI analysis.
+                        </p>
+                    </div>
+
+                    <div class="ai-badge">
+                        AI ANALYZED
+                    </div>
+
+                </div>
+
+
+                <!-- RISK PROGRESSION -->
+
+                <div class="risk-progression">
+
+                    <div class="risk-level low-level">
+
+                        <div class="risk-level-top">
+                            <span class="risk-dot"></span>
+                            <span>LOW</span>
+                        </div>
+
+                        <strong id="lowRisk">0</strong>
+
+                        <small>
+                            Low risk
+                        </small>
+
+                    </div>
+
+
+                    <div class="risk-arrow">
+                        →
+                    </div>
+
+
+                    <div class="risk-level medium-level">
+
+                        <div class="risk-level-top">
+                            <span class="risk-dot"></span>
+                            <span>MEDIUM</span>
+                        </div>
+
+                        <strong id="mediumRisk">0</strong>
+
+                        <small>
+                            Needs monitoring
+                        </small>
+
+                    </div>
+
+
+                    <div class="risk-arrow">
+                        →
+                    </div>
+
+
+                    <div class="risk-level high-level">
+
+                        <div class="risk-level-top">
+                            <span class="risk-dot"></span>
+                            <span>HIGH</span>
+                        </div>
+
+                        <strong id="highRisk">0</strong>
+
+                        <small>
+                            Immediate attention
+                        </small>
+
+                    </div>
+
+
+                    <div class="risk-arrow">
+                        →
+                    </div>
+
+
+                    <div class="risk-level critical-level">
+
+                        <div class="risk-level-top">
+                            <span class="risk-dot"></span>
+                            <span>CRITICAL</span>
+                        </div>
+
+                        <strong>AI</strong>
+
+                        <small>
+                            Priority recovery
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="risk-total-row">
+
+                    <div>
+                        <span>Total analyzed</span>
+                        <strong id="riskTotal">0</strong>
+                    </div>
+
+                    <div class="risk-scale">
+                        <span>LOW</span>
+                        <div class="scale-line"></div>
+                        <span>HIGH</span>
+                    </div>
+
+                </div>
+
+
+                <!-- ORIGINAL RISK BARS -->
+
+                <div class="risk-bars">
+
+                    <div class="risk-bar-row">
+
+                        <div class="risk-bar-label">
+                            <span>High</span>
+                            <strong id="highRiskLabel">High Risk</strong>
+                        </div>
+
+                        <div class="progress-container">
+                            <div id="highBar"
+                                 class="progress-bar">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-bar-row">
+
+                        <div class="risk-bar-label">
+                            <span>Medium</span>
+                            <strong>Medium Risk</strong>
+                        </div>
+
+                        <div class="progress-container">
+                            <div id="mediumBar"
+                                 class="progress-bar">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-bar-row">
+
+                        <div class="risk-bar-label">
+                            <span>Low</span>
+                            <strong>Low Risk</strong>
+                        </div>
+
+                        <div class="progress-container">
+                            <div id="lowBar"
+                                 class="progress-bar">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI INSIGHT -->
+
+            <div class="card ai-insight-card">
+
+                <div class="ai-insight-icon">
+                    ✦
+                </div>
+
+                <div class="ai-insight-content">
+
+                    <span class="eyebrow">
+                        AI RECOMMENDATION
+                    </span>
+
+                    <h3 id="aiInsight">
+                        AI Insight
+                    </h3>
+
+                    <p id="aiInsightText">
+                        Loading payment intelligence...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PAYMENTS
+        ================================================== -->
+
+        <section id="payments"
+                 class="page-section enhanced-page"
+                 style="display:none;">
+
+            <div class="payment-overview-grid">
+
+                <div class="overview-card">
+                    <span>Total transactions</span>
+                    <strong id="paymentsPageTotal">--</strong>
+                    <small>Across current dataset</small>
+                </div>
+
+                <div class="overview-card success-overview">
+                    <span>Successful</span>
+                    <strong id="paymentsPageSuccess">--</strong>
+                    <small>Completed payments</small>
+                </div>
+
+                <div class="overview-card danger-overview">
+                    <span>Failed</span>
+                    <strong id="paymentsPageFailed">--</strong>
+                    <small>Require attention</small>
+                </div>
+
+                <div class="overview-card risk-overview">
+                    <span>Revenue at risk</span>
+                    <strong id="paymentsPageRisk">--</strong>
+                    <small>AI recovery opportunity</small>
+                </div>
+
+            </div>
+
+
+            <div class="card table-card">
+
+                <div class="table-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            TRANSACTION MONITORING
+                        </span>
+
+                        <h3>
+                            Payment Activity
+                        </h3>
+
+                        <p>
+                            Monitor payment status and recovery risk.
+                        </p>
+                    </div>
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="paymentSearch"
+                            placeholder="Search payment..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>PAYMENT</th>
+                                <th>CUSTOMER</th>
+                                <th>AMOUNT</th>
+                                <th>STATUS</th>
+                                <th>METHOD</th>
+                                <th>RISK</th>
+                                <th>ACTION</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="paymentsPageTable">
+
+                            <tr>
+                                <td colspan="7"
+                                    class="empty-state">
+                                    Loading payment activity...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CUSTOMERS
+        ================================================== -->
+
+        <section id="customers"
+                 class="page-section enhanced-page"
+                 style="display:none;">
+
+            <div class="payment-overview-grid">
+
+                <div class="overview-card">
+                    <span>Total Customers</span>
+                    <strong id="customerTotal">--</strong>
+                    <small>Customers in dataset</small>
+                </div>
+
+                <div class="overview-card success-overview">
+                    <span>Healthy Customers</span>
+                    <strong id="healthyCustomers">--</strong>
+                    <small>Low recovery risk</small>
+                </div>
+
+                <div class="overview-card danger-overview">
+                    <span>At Risk</span>
+                    <strong id="riskCustomers">--</strong>
+                    <small>Require attention</small>
+                </div>
+
+            </div>
+
+
+            <div class="card customer-intelligence-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            CUSTOMER INTELLIGENCE
+                        </span>
+
+                        <h3>
+                            Customer Intelligence
+                        </h3>
+
+                        <p>
+                            Understand customer payment behavior and recovery risk.
+                        </p>
+                    </div>
+
+                    <div class="ai-badge">
+                        AI POWERED
+                    </div>
+
+                </div>
+
+
+                <div class="customer-content">
+
+                    <div class="customer-list-panel">
+
+                        <h4>
+                            Customer Overview
+                        </h4>
+
+                        <div id="customerList">
+                            Loading customer intelligence...
+                        </div>
+
+                    </div>
+
+
+                    <div class="customer-risk-panel">
+
+                        <span class="eyebrow">
+                            RISK SCORE
+                        </span>
+
+                        <strong id="customerRiskScore">
+                            --
+                        </strong>
+
+                        <p id="customerInsightText">
+                            Customer risk insights will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             AI RISK ANALYSIS
+        ================================================== -->
+
+        <section id="aiRiskAnalysis"
+                 class="page-section"
+                 style="display:none;">
+
+            <div class="kpi-grid">
+
+                <div class="card dashboard-kpi">
+                    <span>Total Analyzed</span>
+                    <strong id="analysisTotal">0</strong>
+                    <small>Payments analyzed by AI</small>
+                </div>
+
+                <div class="card dashboard-kpi danger-kpi">
+                    <span>High Risk</span>
+                    <strong id="analysisHigh">0</strong>
+                    <small>Immediate attention</small>
+                </div>
+
+                <div class="card dashboard-kpi">
+                    <span>Medium Risk</span>
+                    <strong id="analysisMedium">0</strong>
+                    <small>Requires monitoring</small>
+                </div>
+
+                <div class="card dashboard-kpi success-kpi">
+                    <span>Low Risk</span>
+                    <strong id="analysisLow">0</strong>
+                    <small>Lower recovery priority</small>
+                </div>
+
+            </div>
+
+
+            <div class="card analysis-card">
+
+                <span class="eyebrow">
+                    TOP PRIORITY
+                </span>
+
+                <h3>
+                    Top Risk Payment
+                </h3>
+
+                <div class="analysis-grid">
+
+                    <div>
+                        <span>Payment</span>
+                        <strong id="topRiskPayment">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Risk Score</span>
+                        <strong id="topRiskScore">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Amount</span>
+                        <strong id="topRiskAmount">₹0</strong>
+                    </div>
+
+                    <div>
+                        <span>Failure Reason</span>
+                        <strong id="topRiskReason">--</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="eyebrow">
+                    AI EXPLANATION
+                </span>
+
+                <h3>
+                    Risk Factors
+                </h3>
+
+                <div class="factor-list">
+
+                    <div class="factor-row">
+                        <span>Failure Reason</span>
+                        <strong id="factorReason">--</strong>
+                        <b id="factorReasonScore">+0</b>
+                    </div>
+
+                    <div class="factor-row">
+                        <span>Transaction Value</span>
+                        <strong id="factorAmount">--</strong>
+                        <b id="factorAmountScore">+0</b>
+                    </div>
+
+                    <div class="factor-row">
+                        <span>Payment Method</span>
+                        <strong id="factorMethod">--</strong>
+                        <b id="factorMethodScore">+0</b>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card ai-decision-card">
+
+                <span class="eyebrow">
+                    AI DECISION ENGINE
+                </span>
+
+                <h3>
+                    Recommended Recovery Decision
+                </h3>
+
+                <strong id="aiDecision">
+                    NO DATA
+                </strong>
+
+                <p id="aiRecommendedAction">
+                    No recovery action available.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RECOVERY QUEUE
+        ================================================== -->
+
+        <section id="recoveryQueue"
+                 class="page-section"
+                 style="display:none;">
+
+            <div class="card table-card">
+
+                <div class="table-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            ACTION CENTER
+                        </span>
+
+                        <h3>
+                            Recovery Queue
+                        </h3>
+
+                        <p>
+                            Prioritized payment recovery opportunities.
+                        </p>
+
+                    </div>
+
+                    <strong id="queueCount">
+                        0 payments
+                    </strong>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>PAYMENT</th>
+                                <th>CUSTOMER</th>
+                                <th>AMOUNT</th>
+                                <th>REASON</th>
+                                <th>ACTION TYPE</th>
+                                <th>RISK</th>
+                                <th>ACTION</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="paymentTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ANALYTICS
+        ================================================== -->
+
+        <section id="analytics"
+                 class="page-section"
+                 style="display:none;">
+
+            <div class="kpi-grid">
+
+                <div class="card dashboard-kpi risk-kpi">
+                    <span>Recovery Opportunity</span>
+                    <strong id="analyticsRecoveryValue">
+                        ₹0
+                    </strong>
+                    <small>Potential revenue recovery</small>
+                </div>
+
+                <div class="card dashboard-kpi success-kpi">
+                    <span>Successful Revenue</span>
+                    <strong id="analyticsSuccessValue">
+                        ₹0
+                    </strong>
+                    <small>Processed successfully</small>
+                </div>
+
+                <div class="card dashboard-kpi danger-kpi">
+                    <span>Failed Payments</span>
+                    <strong id="analyticsFailedValue">
+                        0
+                    </strong>
+                    <small>Payments requiring action</small>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="eyebrow">
+                    PERFORMANCE
+                </span>
+
+                <h3>
+                    Payment Performance
+                </h3>
+
+                <div class="analytics-metric">
+
+                    <div class="metric-header">
+                        <span>Successful</span>
+
+                        <strong id="analyticsSuccessPercent">
+                            0%
+                        </strong>
+                    </div>
+
+                    <div class="progress-container">
+                        <div id="analyticsSuccessBar"
+                             class="progress-bar">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="analytics-metric">
+
+                    <div class="metric-header">
+                        <span>Failed</span>
+
+                        <strong id="analyticsFailedPercent">
+                            0%
+                        </strong>
+                    </div>
+
+                    <div class="progress-container">
+                        <div id="analyticsFailedBar"
+                             class="progress-bar">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <span class="eyebrow">
+                    RISK ANALYTICS
+                </span>
+
+                <h3>
+                    Risk Breakdown
+                </h3>
+
+                <div class="analytics-risk-grid">
+
+                    <div class="analytics-risk-item">
+                        <span>High Risk</span>
+                        <strong id="analyticsHighRisk">0</strong>
+                    </div>
+
+                    <div class="analytics-risk-item">
+                        <span>Medium Risk</span>
+                        <strong id="analyticsMediumRisk">0</strong>
+                    </div>
+
+                    <div class="analytics-risk-item">
+                        <span>Low Risk</span>
+                        <strong id="analyticsLowRisk">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SETTINGS
+        ================================================== -->
+
+        <section id="settings"
+                 class="page-section"
+                 style="display:none;">
+
+            <div class="card settings-card">
+
+                <span class="eyebrow">
+                    SYSTEM CONFIGURATION
+                </span>
+
+                <h3>
+                    RecoverAI Settings
+                </h3>
+
+                <p>
+                    <span>AI Engine</span>
+                    <strong>Operational</strong>
+                </p>
+
+                <p>
+                    <span>Backend</span>
+                    <strong>Connected</strong>
+                </p>
+
+                <p>
+                    <span>Currency</span>
+                    <strong>INR</strong>
+                </p>
+
+                <p>
+                    <span>Risk Model</span>
+                    <strong>Active</strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         NAVIGATION FUNCTIONS
+    ====================================================== -->
+
+    <script>
+
+        function openRecoverPage(
+            sectionId,
+            clickedElement,
+            title,
+            description
+        ) {
+
+            const sections =
+                document.querySelectorAll(".page-section");
+
+            sections.forEach(function(section) {
+                section.style.display = "none";
+            });
+
+
+            const target =
+                document.getElementById(sectionId);
+
+            if (target) {
+                target.style.display = "";
+            }
+
+
+            document
+                .querySelectorAll(".nav-link")
+                .forEach(function(link) {
+                    link.classList.remove("active");
+                });
+
+
+            if (clickedElement) {
+                clickedElement.classList.add("active");
+            }
+
+
+            const titleElement =
+                document.getElementById("pageTitle");
+
+            const descriptionElement =
+                document.getElementById("pageDescription");
+
+            const breadcrumbElement =
+                document.getElementById("breadcrumbPage");
+
+
+            if (titleElement) {
+                titleElement.textContent = title;
+            }
+
+
+            if (descriptionElement) {
+                descriptionElement.textContent = description;
+            }
+
+
+            if (breadcrumbElement) {
+                breadcrumbElement.textContent = title;
+            }
+
+
+            if (sectionId === "payments") {
+                syncPaymentPage();
+            }
+
+
+            if (sectionId === "customers") {
+                syncCustomerPage();
+            }
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function syncPaymentPage() {
+
+            const map = {
+
+                paymentsPageTotal:
+                    "totalPayments",
+
+                paymentsPageSuccess:
+                    "successfulPayments",
+
+                paymentsPageFailed:
+                    "failedPayments",
+
+                paymentsPageRisk:
+                    "revenueAtRisk"
+
+            };
+
+
+            Object.keys(map).forEach(function(targetId) {
+
+                const target =
+                    document.getElementById(targetId);
+
+                const source =
+                    document.getElementById(map[targetId]);
+
+
+                if (target && source) {
+
+                    target.textContent =
+                        source.textContent;
+
+                }
+
+            });
+
+        }
+
+
+        function syncCustomerPage() {
+
+            const customerTotal =
+                document.getElementById(
+                    "customerTotal"
+                );
+
+
+            const totalPayments =
+                document.getElementById(
+                    "totalPayments"
+                );
+
+
+            if (
+                customerTotal &&
+                totalPayments &&
+                totalPayments.textContent !== "--"
+            ) {
+
+                customerTotal.textContent =
+                    totalPayments.textContent;
+
+            }
+
+        }
+
+    </script>
+
+
+    <!-- =====================================================
+         MAIN JAVASCRIPT
+    ====================================================== -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>
+

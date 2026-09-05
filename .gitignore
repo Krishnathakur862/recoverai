@@ -16,3 +16,4 @@ coverage/
 
 .DS_Store
 Thumbs.dbbackend/recoverai.db
+backend/recoverai.db

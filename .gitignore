@@ -15,4 +15,4 @@ build/
 coverage/
 
 .DS_Store
-Thumbs.db
+Thumbs.dbbackend/recoverai.db
